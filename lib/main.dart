@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sport_horizon_flutter/views/components/nav_drawer.dart';
 import 'package:sport_horizon_flutter/views/pages/home.dart';
 
 void main() => runApp(App());
