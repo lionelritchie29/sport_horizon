@@ -14,7 +14,7 @@ class ProductPage extends StatelessWidget {
       ),
       drawer: NavDrawer(),
       body: Container(
-        margin: EdgeInsets.only(top: 5, bottom: 15),
+        margin: EdgeInsets.only(top: 5),
         child: ListView(
           // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [HeaderText('Products'), ProductGrid()],

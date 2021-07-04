@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sport_horizon_flutter/views/pages/home.dart';
+import 'package:sport_horizon_flutter/views/pages/products.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -16,10 +18,14 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Home'),
+            onTap: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomePage())),
           ),
           ListTile(
             leading: const Icon(Icons.shopping_basket),
             title: const Text('Products'),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProductPage())),
           ),
           ListTile(
             leading: const Icon(Icons.logout),
