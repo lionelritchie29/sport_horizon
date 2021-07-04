@@ -6,7 +6,7 @@ import 'package:sport_horizon_flutter/views/components/nav_drawer.dart';
 import 'package:sport_horizon_flutter/views/components/popup_menu.dart';
 import 'package:sport_horizon_flutter/views/components/promo_carousel.dart';
 
-class Home extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,6 @@ class Home extends StatelessWidget {
       body: Container(
         margin: EdgeInsets.only(top: 10),
         child: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HeaderText('Featured Deals'),
             PromoCarousel(),

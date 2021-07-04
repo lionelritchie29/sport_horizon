@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sport_horizon_flutter/views/pages/home.dart';
+import 'package:sport_horizon_flutter/views/pages/products.dart';
 
 void main() => runApp(App());
 
@@ -14,7 +15,7 @@ class AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      home: ProductPage(),
       debugShowCheckedModeBanner: false,
     );
   }
