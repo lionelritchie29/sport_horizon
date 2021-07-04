@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sport_horizon_flutter/views/components/nav_drawer.dart';
+import 'package:sport_horizon_flutter/views/components/popup_menu.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -7,15 +8,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hi, Budi'),
-        actions: [
-          PopupMenuButton(
-              itemBuilder: (context) => [
-                    PopupMenuItem(
-                      child: const Text('Toggle Dark Theme'),
-                      value: 1,
-                    )
-                  ])
-        ],
+        actions: [PopupMenu()],
       ),
       drawer: NavDrawer(),
       body: Center(child: const Text('test')),
