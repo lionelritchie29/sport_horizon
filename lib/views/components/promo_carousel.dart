@@ -16,9 +16,12 @@ class PromoCarousel extends StatelessWidget {
           return Container(
             padding: EdgeInsets.only(right: 10),
             child: SizedBox(
-              child: Image(
-                image: AssetImage("assets/$img"),
-                fit: BoxFit.fitWidth,
+              child: Card(
+                child: Image(
+                  image: AssetImage("assets/$img"),
+                  fit: BoxFit.fitWidth,
+                ),
+                elevation: 2,
               ),
             ),
           );
@@ -27,7 +30,7 @@ class PromoCarousel extends StatelessWidget {
           autoPlay: true,
           enableInfiniteScroll: true,
           initialPage: 0,
-          height: 125,
+          height: 105,
         ));
   }
 }

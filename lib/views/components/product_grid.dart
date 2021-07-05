@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_horizon_flutter/data/products.dart';
+import 'package:sport_horizon_flutter/views/pages/product_detail.dart';
 
 class ProductGrid extends StatelessWidget {
+  late var _ctx;
+
   List<Widget> getChildren() {
     return products.map((product) {
       return Card(
@@ -21,7 +24,12 @@ class ProductGrid extends StatelessWidget {
             Text(product.price.toString()),
             TextButton(
               child: Text('View More'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    _ctx,
+                    MaterialPageRoute(
+                        builder: (_ctx) => ProductDetailPage(product)));
+              },
             )
           ],
         ),
@@ -31,6 +39,8 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _ctx = context;
+
     return Container(
       margin: EdgeInsets.all(5),
       child: GridView.count(
