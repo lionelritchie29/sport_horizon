@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sport_horizon_flutter/models/product.dart';
+import 'package:sport_horizon_flutter/utils/global.dart';
 import 'package:sport_horizon_flutter/views/components/popup_menu.dart';
 import 'package:sport_horizon_flutter/views/components/product_detail_info.dart';
 import 'package:sport_horizon_flutter/views/components/product_detail_reviews.dart';
@@ -25,7 +26,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
         child: Scaffold(
           appBar: AppBar(
             leading: BackButton(),
-            title: const Text('Hi, Budi'),
+            title: Text('Hi, $loggedUsername'),
             bottom: TabBar(tabs: [
               ListTile(
                   title:
