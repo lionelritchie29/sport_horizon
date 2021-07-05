@@ -5,6 +5,10 @@ import 'package:sport_horizon_flutter/views/pages/login.dart';
 import 'package:sport_horizon_flutter/views/pages/products.dart';
 
 class NavDrawer extends StatelessWidget {
+  final Function() updateDarkThemeState;
+
+  NavDrawer(this.updateDarkThemeState);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -29,7 +33,8 @@ class NavDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    MaterialPageRoute(
+                        builder: (context) => LoginPage(updateDarkThemeState)),
                     (route) => false);
               }),
         ],

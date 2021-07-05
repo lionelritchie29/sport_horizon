@@ -3,11 +3,19 @@ import 'package:sport_horizon_flutter/utils/global.dart';
 import 'package:sport_horizon_flutter/views/pages/home.dart';
 
 class LoginPage extends StatefulWidget {
+  final Function() updateDarkThemeState;
+
+  LoginPage(this.updateDarkThemeState);
+
   @override
-  State<StatefulWidget> createState() => LoginPageState();
+  State<StatefulWidget> createState() => LoginPageState(updateDarkThemeState);
 }
 
 class LoginPageState extends State<LoginPage> {
+  final Function() updateDarkThemeState;
+
+  LoginPageState(this.updateDarkThemeState);
+
   final _formKey = GlobalKey<FormState>();
   late var _ctx;
 
@@ -15,55 +23,59 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     _ctx = context;
 
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: const Text('Login'),
-        ),
-        body: Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 35, bottom: 35),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(child: Image(image: AssetImage("assets/logo.png"))),
-              Form(
-                key: _formKey,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(bottom: 5, top: 15),
-                        child: const Text('Username'),
-                      ),
-                      TextFormField(
-                        validator: (value) => validateUsername(value),
-                        decoration: InputDecoration(
-                            hintText: 'Username...',
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey))),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 5, top: 10),
-                        child: const Text('Password'),
-                      ),
-                      TextFormField(
-                        validator: (value) => validatePassword(value),
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            hintText: 'Password...',
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey))),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: ElevatedButton(
-                            child: const Text('Login'), onPressed: onLogin),
-                      )
-                    ]),
-              )
-            ],
+    return MaterialApp(
+      home: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            title: const Text('Login'),
           ),
-        ));
+          body: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 35, bottom: 35),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(child: Image(image: AssetImage("assets/logo.png"))),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5, top: 15),
+                          child: const Text('Username'),
+                        ),
+                        TextFormField(
+                          validator: (value) => validateUsername(value),
+                          decoration: InputDecoration(
+                              hintText: 'Username...',
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey))),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5, top: 10),
+                          child: const Text('Password'),
+                        ),
+                        TextFormField(
+                          validator: (value) => validatePassword(value),
+                          obscureText: true,
+                          decoration: InputDecoration(
+                              hintText: 'Password...',
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey))),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 10),
+                          child: ElevatedButton(
+                              child: const Text('Login'), onPressed: onLogin),
+                        )
+                      ]),
+                )
+              ],
+            ),
+          )),
+      theme: darkThemeEnabled ? ThemeData.dark() : ThemeData.light(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 
   dynamic validateUsername(var value) {
@@ -100,8 +112,8 @@ class LoginPageState extends State<LoginPage> {
   void onLogin() {
     if (_formKey.currentState!.validate()) {
       Navigator.pop(_ctx);
-      Navigator.push(
-          _ctx, MaterialPageRoute(builder: (_ctx) => HomePage(() => {})));
+      Navigator.push(_ctx,
+          MaterialPageRoute(builder: (_ctx) => HomePage(updateDarkThemeState)));
     }
   }
 }

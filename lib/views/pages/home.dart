@@ -8,7 +8,7 @@ import 'package:sport_horizon_flutter/views/components/popup_menu.dart';
 import 'package:sport_horizon_flutter/views/components/promo_carousel.dart';
 
 class HomePage extends StatefulWidget {
-  final Function updateDarkThemeState;
+  final Function() updateDarkThemeState;
 
   HomePage(this.updateDarkThemeState);
 
@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final Function updateDarkThemeState;
+  void Function() updateDarkThemeState;
 
   HomePageState(this.updateDarkThemeState);
 
@@ -28,7 +28,7 @@ class HomePageState extends State<HomePage> {
         title: Text('Hi, $loggedUsername'),
         actions: [PopupMenu(updateDarkThemeState)],
       ),
-      drawer: NavDrawer(),
+      drawer: NavDrawer(updateDarkThemeState),
       body: Container(
         margin: EdgeInsets.only(top: 10),
         child: ListView(

@@ -20,7 +20,7 @@ class ProductGrid extends StatelessWidget {
             Container(
                 child: Center(
                     child: Text(product.name, overflow: TextOverflow.ellipsis)),
-                padding: EdgeInsets.only(left: 3, right: 3)),
+                padding: EdgeInsets.only(left: 3, right: 3, top: 8)),
             Text(product.price.toString()),
             TextButton(
               child: Text('View More'),
@@ -51,7 +51,7 @@ class ProductGrid extends StatelessWidget {
         shrinkWrap: true,
         physics: ScrollPhysics(),
         childAspectRatio: MediaQuery.of(context).size.width /
-            (MediaQuery.of(context).size.height / 1.45),
+            (MediaQuery.of(context).size.height / 1.4),
       ),
     );
   }
