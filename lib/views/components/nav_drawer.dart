@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sport_horizon_flutter/utils/global.dart';
 import 'package:sport_horizon_flutter/views/pages/home.dart';
+import 'package:sport_horizon_flutter/views/pages/login.dart';
 import 'package:sport_horizon_flutter/views/pages/products.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -28,9 +30,14 @@ class NavDrawer extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => ProductPage())),
           ),
           ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text('Logout'),
-          ),
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    (route) => false);
+              }),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sport_horizon_flutter/utils/global.dart';
 import 'package:sport_horizon_flutter/views/components/brand_carousel.dart';
 import 'package:sport_horizon_flutter/views/components/category_grid.dart';
 import 'package:sport_horizon_flutter/views/components/header_text.dart';
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hi, Budi'),
+        title: Text('Hi, $loggedUsername'),
         actions: [PopupMenu()],
       ),
       drawer: NavDrawer(),
