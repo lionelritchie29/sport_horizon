@@ -38,7 +38,7 @@ class ProductDetailInfo extends StatelessWidget {
                 'Add Review:',
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
               )),
-          AddReviewForm(),
+          AddReviewForm(_product),
         ],
       ),
     );

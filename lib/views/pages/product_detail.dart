@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sport_horizon_flutter/models/product.dart';
-import 'package:sport_horizon_flutter/views/components/nav_drawer.dart';
 import 'package:sport_horizon_flutter/views/components/popup_menu.dart';
 import 'package:sport_horizon_flutter/views/components/product_detail_info.dart';
 import 'package:sport_horizon_flutter/views/components/product_detail_reviews.dart';
@@ -25,6 +24,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            leading: BackButton(),
             title: const Text('Hi, Budi'),
             bottom: TabBar(tabs: [
               ListTile(
@@ -42,7 +42,6 @@ class ProductDetailPageState extends State<ProductDetailPage> {
             ProductDetailInfo(_product),
             ProductDetailReview(_product)
           ]),
-          drawer: NavDrawer(),
         ));
   }
 }
