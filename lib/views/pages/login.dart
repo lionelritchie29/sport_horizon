@@ -16,6 +16,7 @@ class LoginPageState extends State<LoginPage> {
     _ctx = context;
 
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const Text('Login'),
         ),
@@ -99,7 +100,8 @@ class LoginPageState extends State<LoginPage> {
   void onLogin() {
     if (_formKey.currentState!.validate()) {
       Navigator.pop(_ctx);
-      Navigator.push(_ctx, MaterialPageRoute(builder: (_ctx) => HomePage()));
+      Navigator.push(
+          _ctx, MaterialPageRoute(builder: (_ctx) => HomePage(() => {})));
     }
   }
 }

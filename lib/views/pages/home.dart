@@ -7,13 +7,26 @@ import 'package:sport_horizon_flutter/views/components/nav_drawer.dart';
 import 'package:sport_horizon_flutter/views/components/popup_menu.dart';
 import 'package:sport_horizon_flutter/views/components/promo_carousel.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  final Function updateDarkThemeState;
+
+  HomePage(this.updateDarkThemeState);
+
+  @override
+  State<StatefulWidget> createState() => HomePageState(updateDarkThemeState);
+}
+
+class HomePageState extends State<HomePage> {
+  final Function updateDarkThemeState;
+
+  HomePageState(this.updateDarkThemeState);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Hi, $loggedUsername'),
-        actions: [PopupMenu()],
+        actions: [PopupMenu(updateDarkThemeState)],
       ),
       drawer: NavDrawer(),
       body: Container(

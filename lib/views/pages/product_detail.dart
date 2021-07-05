@@ -36,7 +36,6 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                       style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.star, color: Colors.white)),
             ]),
-            actions: [PopupMenu()],
           ),
           body: TabBarView(children: [
             ProductDetailInfo(_product),

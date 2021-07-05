@@ -10,7 +10,6 @@ class ProductPage extends StatelessWidget {
       appBar: AppBar(
         leading: BackButton(),
         title: const Text('Hi, Budi'),
-        actions: [PopupMenu()],
       ),
       body: Container(
         margin: EdgeInsets.only(top: 5),

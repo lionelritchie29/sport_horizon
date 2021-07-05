@@ -18,12 +18,6 @@ class NavDrawer extends StatelessWidget {
                     image: AssetImage("assets/logo.png"), fit: BoxFit.contain)),
           ),
           ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home'),
-            onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomePage())),
-          ),
-          ListTile(
             leading: const Icon(Icons.shopping_basket),
             title: const Text('Products'),
             onTap: () => Navigator.push(context,
